@@ -1,0 +1,17 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/generation-freeze",
+  "writer_model": "Qwen/Qwen2.5-14B-Instruct",
+  "writer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "decoding": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "max_new_tokens": 256,
+    "enable_thinking": false
+  },
+  "attempts_per_memory": 2,
+  "generation_batch_size": 12,
+  "branch_regimes": ["persistent", "recovery", "revival"],
+  "branch_depth": 5,
+  "shared_node_count": 6,
+  "pilot_tasks_per_benchmark": 2
+}

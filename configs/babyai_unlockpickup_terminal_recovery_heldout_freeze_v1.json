@@ -1,0 +1,48 @@
+{
+  "protocol": "babyai_unlockpickup_terminal_recovery_heldout_v1",
+  "phase": "confirmatory_heldout",
+  "env_id": "BabyAI-UnlockPickupDist-v0",
+  "seed_start": 60,
+  "seed_stop_exclusive": 300,
+  "development_smoke_start": 0,
+  "development_smoke_stop_exclusive": 4,
+  "colors": ["red", "green", "blue", "purple", "yellow", "grey"],
+  "variants": ["early_bind", "post_unlock_bind", "terminal_bind"],
+  "stage_harm_weights": [1.0, 2.0, 3.0],
+  "cascade_length_prior": [0.3333333333333333, 0.3333333333333333, 0.3333333333333333],
+  "confidence_regimes": ["known", "calibrated", "ambiguous", "misleading"],
+  "source_priors": {
+    "known": {"true": 1.0, "decoy": 0.0, "other": 0.0},
+    "calibrated": {"true": 0.65, "decoy": 0.07, "other": 0.07},
+    "ambiguous": {"true": 0.30, "decoy": 0.28, "other": 0.105},
+    "misleading": {"true": 0.25, "decoy": 0.55, "other": 0.05}
+  },
+  "provenance_conditions": {
+    "complete": {"hidden_links_per_layer": 0},
+    "partial_33": {"hidden_links_per_layer": 2},
+    "partial_67": {"hidden_links_per_layer": 4}
+  },
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "quarantine_capacity": 3,
+  "random_replicates": 50,
+  "random_seed": 260815,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260816,
+  "methods": [
+    "tr_dcta", "sc_dcta", "prob_dcta", "hard_source_dcta", "ens",
+    "source_ig", "source_then_dcta", "positive_only_dcta", "static_risk",
+    "random", "oracle_source", "full_information_hindsight"
+  ],
+  "primary_estimands": ["robot_recovery_success", "weighted_quarantine_recall"],
+  "primary_comparators": [
+    "sc_dcta", "prob_dcta", "hard_source_dcta", "ens", "random"
+  ],
+  "terminal_recovery_method_sha256": "8c57f27d08d7cd9560ac6c8873047ab0282c11e31096f845901c78a4821a7892",
+  "development_report": "reports/babyai_unlockpickup_terminal_recovery_development_v1.json",
+  "development_report_sha256": "e4a4f6958d02bfa60e745b81818ee6d9b4688e75b0b31b08638a7a3687faec5b",
+  "opendoor_transfer_report": "reports/babyai_opendoorcolor_terminal_recovery_transfer_v1.json",
+  "opendoor_transfer_report_sha256": "38b765ff85fd731bb167c8ccad7bf941de7c91c08fdee422905315e4b6380595",
+  "go_no_go_report": "reports/babyai_unlockpickup_go_no_go_v1.json",
+  "go_no_go_report_sha256": "f1cf1c8e89dae550a95f89976f80420bb36ff443f7376aaca994bd1f6a82e25d"
+}

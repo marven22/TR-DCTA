@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tr-dcta"
+version = "0.1.0"
+description = "Terminal-recovery auditing for persistent agent-memory corruption"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Venkat Margapuri"}]
+dependencies = ["numpy==2.2.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+

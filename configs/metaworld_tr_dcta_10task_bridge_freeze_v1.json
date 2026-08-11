@@ -1,0 +1,40 @@
+{
+  "protocol": "metaworld_tr_dcta_10task_bridge_v1",
+  "split": "development",
+  "task_count": 10,
+  "archive_count": 30,
+  "provenance_missing_rate": 0.25,
+  "budget": 4,
+  "particles": 2048,
+  "source_proposal_floor": 0.05,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260817,
+  "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+  "semantic_model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "terminal_rule": "quarantine replay-confirmed harmful memories; average forced-exposure behavioral recovery over affected anchors; break ties by anchor quarantine rate",
+  "comparators": [
+    "sc_dcta", "sc_ens", "hard_source_dcta", "sc_source_then_dcta",
+    "floored_prob_dcta", "known_source_dcta", "full_information_oracle"
+  ],
+  "paths": {
+    "public": "results/prob_dcta_metaworld_development_public_mask_consistent.json",
+    "private": "results/prob_dcta_metaworld_development_private_mask_consistent.json",
+    "audit": "results/sc_dcta_metaworld_development.json",
+    "observable": "results/metaworld_recovery_development_observable.json",
+    "recovery_private": "results/metaworld_recovery_development_private.json",
+    "forced_evaluation": "results/metaworld_forced_exposure_development_evaluation.json",
+    "inference": "configs/prob_dcta_publication_v2_inference_final.json",
+    "babyai_confirmation": "reports/babyai_unlockpickup_terminal_recovery_heldout_v1.json"
+  },
+  "hashes": {
+    "public": "098462411fa36174fe88e27450bccc4023f74ec27856b80c74575f00d5a2abd8",
+    "private": "4dd374be6334067cf812202a78a3afb94c1a781f770e5ca3833898f637dbc75b",
+    "audit": "6f6b4206977d5f60fe617d50879460eb906717da7a942f4156f1be36091e3a72",
+    "observable": "4d787bafd27af6979d6daf8077cbfa7bbd829649ba2f0c9d8e5530b4dc553eaf",
+    "recovery_private": "453146815054ef5dd859f2ecd089c8d2661e37dcadd01fa1ef80036be0a28caf",
+    "forced_evaluation": "c77420c3b5b8d9d38c7a4a50a78e65651faeaa1cb48061dc4037fa512ff65ed5",
+    "inference": "14cdb70940f3ee7a8cf1ca7ac73b8f0fc151b26abce0c310078b3d6b7f235879",
+    "babyai_confirmation": "e7a8e1b3c80679684e8798a33d123af32429a5eaed29a4b9bdbaa31bff13b5d5",
+    "adapter": "6fac16664b8749d1c3f49190c9c0ac8f5bb76ea354bad8cbe4cb4a63b1e2b1d7"
+  }
+}

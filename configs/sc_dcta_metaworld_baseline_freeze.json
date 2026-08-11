@@ -1,0 +1,35 @@
+{
+  "protocol": "memory-corruption/sc-dcta/metaworld-corrected-baselines-freeze-v1",
+  "created_at_utc": "2026-08-05T21:05:00-04:00",
+  "particles": 2048,
+  "proposal_floor": 0.05,
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "primary_provenance_missing_rate": 0.25,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260805,
+  "paths": {
+    "evaluation_public": "results/prob_dcta_metaworld_test_public_mask_consistent.json",
+    "evaluation_private": "results/prob_dcta_metaworld_test_private_mask_consistent.json",
+    "sc_dcta_result": "results/sc_dcta_metaworld_evaluation.json",
+    "acis_config": "configs/acis_risk_calibrator_v1.json",
+    "posterior": "src/mcx/publication_v2_posterior.py",
+    "source": "src/mcx/publication_v2_source.py",
+    "acquisition": "src/mcx/prob_dcta_benchmark.py",
+    "active_search": "src/mcx/active_search_baselines.py",
+    "protocol_document": "docs/SC_DCTA_METAWORLD_BASELINE_PROTOCOL.md",
+    "runner": "scripts/run_sc_dcta_metaworld_baselines.py"
+  },
+  "artifact_hashes": {
+    "evaluation_public": "ffed23cc04e2d239c5d477d18fed0826808921ed632ebe7cfd3b5baff5a4207c",
+    "evaluation_private": "a255b523ce0db947ebd3ea39f8f77af9260d5d55e30f3bffbf27d322e7962bbe",
+    "sc_dcta_result": "411728d5ed97e58c0d2eb83127dd58faa6d980f717156790a86da680a7123dc2",
+    "acis_config": "d04c2ea4a14baa8d6b6b79bfe9e46c80513421f854e874dc20c425e2f458b99c",
+    "posterior": "0f092183709591c86286b9c06ca3612ff36513a0d6944d0635c878c1ecb46c34",
+    "source": "081ef66cd21c0663746d9bb01c8f55500c0a4b51682ad1dee23aa5b0fa805c46",
+    "acquisition": "0b44465b3073124c82f9aed8b6c3c50d4bc3cc838f332c474216fc0f2e5c1f8a",
+    "active_search": "1687e65e33790dcbd3eb569b368458515c5799d5e2f19a2ac895adce66dc8f98",
+    "protocol_document": "86b12ea7da23552bb104b00da0f60df12683f67c469a0ee42bd47aeee0751fa5",
+    "runner": "7e6bdf0d6afdbb233e4e34d88d603ffe9489315fff57af0bb4c0e2a000dda645"
+  }
+}

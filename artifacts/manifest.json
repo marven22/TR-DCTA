@@ -1,0 +1,30 @@
+{
+  "schema_version": "tr-dcta-external-artifacts-v1",
+  "archive_url": null,
+  "archive_doi": null,
+  "root": ".",
+  "files": [
+    {"group":"metaworld-full49","path":"results/prob_dcta_metaworld_development_public_mask_consistent.json","bytes":1119327,"sha256":"098462411fa36174fe88e27450bccc4023f74ec27856b80c74575f00d5a2abd8"},
+    {"group":"metaworld-full49","path":"results/prob_dcta_metaworld_development_private_mask_consistent.json","bytes":421170,"sha256":"4dd374be6334067cf812202a78a3afb94c1a781f770e5ca3833898f637dbc75b"},
+    {"group":"metaworld-full49","path":"results/metaworld_recovery_development_observable.json","bytes":515516,"sha256":"4d787bafd27af6979d6daf8077cbfa7bbd829649ba2f0c9d8e5530b4dc553eaf"},
+    {"group":"metaworld-full49","path":"results/metaworld_recovery_development_private.json","bytes":86591,"sha256":"453146815054ef5dd859f2ecd089c8d2661e37dcadd01fa1ef80036be0a28caf"},
+    {"group":"metaworld-full49","path":"results/metaworld_forced_exposure_development_evaluation.json","bytes":503074,"sha256":"c77420c3b5b8d9d38c7a4a50a78e65651faeaa1cb48061dc4037fa512ff65ed5"},
+    {"group":"metaworld-full49","path":"results/prob_dcta_metaworld_validation_public_mask_consistent.json","bytes":1124072,"sha256":"b2b4ae6ea3dab8e403803bd4cde57cb9354990f8047738b269b0d44c693db378"},
+    {"group":"metaworld-full49","path":"results/prob_dcta_metaworld_validation_private_mask_consistent.json","bytes":419892,"sha256":"9724d615fae70251a0ee3df33dae4eb3c634743a0eb4ea5fda405e196ebb060e"},
+    {"group":"metaworld-full49","path":"results/metaworld_recovery_validation_b4_observable.json","bytes":508229,"sha256":"fedca7f51c911d5c8fa46b4992164cec96b8fc371df50b426d624c98411ad68f"},
+    {"group":"metaworld-full49","path":"results/metaworld_recovery_validation_b4_private.json","bytes":83114,"sha256":"ec1ec94615c708494478fb8aeaaa46f4c389bdf0744ff9cb27fe46e0cc16a223"},
+    {"group":"metaworld-full49","path":"results/metaworld_forced_exposure_validation_b4_evaluation.json","bytes":415800,"sha256":"d2d25ebc0c0ff3c6369524296a1cbc981cb2c149b5c7c2a134b797e662cc7051"},
+    {"group":"metaworld-full49","path":"results/prob_dcta_metaworld_test_public_mask_consistent.json","bytes":3251568,"sha256":"ffed23cc04e2d239c5d477d18fed0826808921ed632ebe7cfd3b5baff5a4207c"},
+    {"group":"metaworld-full49","path":"results/prob_dcta_metaworld_test_private_mask_consistent.json","bytes":1222603,"sha256":"a255b523ce0db947ebd3ea39f8f77af9260d5d55e30f3bffbf27d322e7962bbe"},
+    {"group":"metaworld-full49","path":"results/metaworld_recovery_test_b4_observable.json","bytes":1465766,"sha256":"898877b975200af474e3fc95404eb0f4906ef2601098accacfd8acf940114a8b"},
+    {"group":"metaworld-full49","path":"results/metaworld_recovery_test_b4_private.json","bytes":246621,"sha256":"2bde7854300ca22cce4fa3556ea577c6b2271504646a579c98e9ce155731d06b"},
+    {"group":"metaworld-full49","path":"results/metaworld_forced_exposure_test_b4_evaluation.json","bytes":1357068,"sha256":"55994482207b18cfff4506b9d8471b650ceb978a2f8301dac2db9931e87afc37"},
+    {"group":"metaworld-full49","path":"results/metaworld_tr_dcta_10task_bridge_v1.json","bytes":96491,"sha256":"b4850f3e4a20cc37ea97cdb78a58c5ed97c8db177ce96e1840599d31da454c3b"},
+    {"group":"metaworld-full49","path":"reports/babyai_unlockpickup_terminal_recovery_heldout_v1.json","bytes":139340277,"sha256":"e7a8e1b3c80679684e8798a33d123af32429a5eaed29a4b9bdbaa31bff13b5d5"},
+    {"group":"babyai","path":"reports/babyai_unlockpickup_terminal_recovery_development_v1.json","bytes":34480310,"sha256":"e4a4f6958d02bfa60e745b81818ee6d9b4688e75b0b31b08638a7a3687faec5b"},
+    {"group":"babyai","path":"reports/babyai_unlockpickup_terminal_recovery_heldout_v1.json","bytes":139340277,"sha256":"e7a8e1b3c80679684e8798a33d123af32429a5eaed29a4b9bdbaa31bff13b5d5"},
+    {"group":"babyai","path":"reports/babyai_opendoorcolor_terminal_recovery_transfer_v1.json","bytes":121189527,"sha256":"38b765ff85fd731bb167c8ccad7bf941de7c91c08fdee422905315e4b6380595"},
+    {"group":"babyai","path":"reports/babyai_minigrid_heldout_evaluation_v1.json","bytes":130422477,"sha256":"66fc3ca129c2b62f8290e42ca280e539e16c708b2d34eef0ad99f859c71885bd"}
+  ]
+}
+

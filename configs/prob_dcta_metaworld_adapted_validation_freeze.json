@@ -1,0 +1,33 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/metaworld-adapted-validation-evaluation-freeze",
+  "created_at_utc": "2026-08-05T19:48:36.283730+00:00",
+  "development_only_at_freeze": true,
+  "validation_task_count": 10,
+  "primary_budget": 4,
+  "primary_provenance_missing_rate": 0.25,
+  "validation_gates": {
+    "adapted_beats_external_source_prob_dcta": true,
+    "adapted_within_003_of_same_posterior_ens": true,
+    "adapted_retains_085_known_source": true,
+    "adapted_improves_source_brier_over_external": true
+  },
+  "no_post_freeze_model_changes": true,
+  "artifact_hashes": {
+    "evaluator": "4a9acb5d241b30e74077303a1c1b70af4b03611e331a4c264a14eb58b6f7a06c",
+    "posterior": "c2d42574203f78b154097a47cda2f814f481c033c6d0fd3114e96efc6e7d0ba3",
+    "source": "081ef66cd21c0663746d9bb01c8f55500c0a4b51682ad1dee23aa5b0fa805c46",
+    "acquisition": "0b44465b3073124c82f9aed8b6c3c50d4bc3cc838f332c474216fc0f2e5c1f8a",
+    "ens": "1687e65e33790dcbd3eb569b368458515c5799d5e2f19a2ac895adce66dc8f98",
+    "citation_mask": "584a15d6ac51a2e53d82aa0a219091759ce0a9f7d8d678ff7d729c70c31323a6",
+    "ledger_builder": "16d5f6e6eb9fe5944c9fd9a9343fe60b4a7acbadf2b88f3346d21350060b3387",
+    "inference": "14cdb70940f3ee7a8cf1ca7ac73b8f0fc151b26abce0c310078b3d6b7f235879",
+    "acis": "d04c2ea4a14baa8d6b6b79bfe9e46c80513421f854e874dc20c425e2f458b99c",
+    "crossfit_protocol": "8de3d9f9e6ede8eac373c3cfbf97dea6bd33babd79eefabe287e91a4fb319444",
+    "source_config": "b917f0f5c9bed8650e7a54bb55d24681e37d24f51b0db0339b89dafeba696b12",
+    "cascade_config": "6b8d963d0f7f54ec8ca328a3d72c07553e839eef98190c97a1d9c85edf6dcceb"
+  },
+  "development_hashes": {
+    "public": "6664114dbeae31ef3e36034192b3795c30118996c66ebaca16e2bff169813b85",
+    "private": "f01ba94a1af0e2fa930f03b1a83aded40382ef9aabb0feb024ba19e18811d852"
+  }
+}

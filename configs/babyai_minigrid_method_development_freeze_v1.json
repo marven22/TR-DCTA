@@ -1,0 +1,51 @@
+{
+  "protocol": "babyai_minigrid_method_development_v1",
+  "phase": "method_development",
+  "env_id": "BabyAI-OpenDoorColor-v0",
+  "context_seeds": {
+    "start": 0,
+    "count": 60
+  },
+  "colors": ["red", "green", "blue", "purple", "yellow", "grey"],
+  "variants": ["nearest", "farthest", "middle"],
+  "budgets": [2, 4, 8],
+  "random_replicates": 50,
+  "random_seed": 260809,
+  "max_steps": 128,
+  "confidence_regimes": [
+    "known",
+    "calibrated",
+    "ambiguous",
+    "misleading"
+  ],
+  "source_priors": {
+    "known": {"true": 1.0, "decoy": 0.0, "other": 0.0},
+    "calibrated": {"true": 0.65, "decoy": 0.07, "other": 0.07},
+    "ambiguous": {"true": 0.30, "decoy": 0.28, "other": 0.105},
+    "misleading": {"true": 0.25, "decoy": 0.55, "other": 0.05}
+  },
+  "methods": [
+    "sc_dcta",
+    "prob_dcta",
+    "hard_source_dcta",
+    "ens",
+    "source_ig",
+    "static_risk",
+    "random",
+    "oracle_source"
+  ],
+  "primary_metric": "corrupt_descendant_recall",
+  "secondary_metrics": [
+    "source_identification_accuracy",
+    "quarantine_precision",
+    "robot_recovery_success",
+    "audit_yield"
+  ],
+  "decision_criteria": {
+    "all_archives_executable": true,
+    "all_replay_labels_environment_verified": true,
+    "all_method_budget_cells_complete": true,
+    "sc_dcta_not_worse_than_ens_at_budget_4": true,
+    "sc_dcta_better_than_random_at_budget_4": true
+  }
+}

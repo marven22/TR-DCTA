@@ -1,0 +1,76 @@
+{
+  "protocol": "sc-dcta/metaworld-forced-exposure-freeze-v1",
+  "created_at_utc": "2026-08-06T00:00:00-04:00",
+  "status": "frozen_before_validation-crossfit-and-held-out-exposure-evaluation",
+  "replay_budgets": [2, 4, 8],
+  "provenance_missing_rate": 0.25,
+  "execution_rule": "force each affected descendant to rank one; after quarantine execute first surviving memory in frozen semantic order",
+  "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+  "semantic_model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "primary_method": "sc_dcta",
+  "common_methods": [
+    "sc_dcta",
+    "ens_shared_posterior",
+    "hard_source_dcta",
+    "source_then_dcta",
+    "floored_prob_dcta",
+    "known_source_dcta",
+    "full_information_oracle"
+  ],
+  "method_aliases": {
+    "development": {
+      "ens_shared_posterior": "sc_ens",
+      "source_then_dcta": "sc_source_then_dcta"
+    },
+    "validation": {
+      "ens_shared_posterior": "ens"
+    },
+    "test": {
+      "ens_shared_posterior": "ens"
+    }
+  },
+  "reporting": {
+    "primary_split": "test",
+    "primary_average": "task_macro",
+    "secondary_average": "exposure_episode_micro",
+    "all_49_task_result": "descriptive_only",
+    "bootstrap_draws": 10000,
+    "cluster": "task_key"
+  },
+  "paths": {
+    "development_public": "results/prob_dcta_metaworld_development_public_mask_consistent.json",
+    "development_private": "results/prob_dcta_metaworld_development_private_mask_consistent.json",
+    "validation_public": "results/prob_dcta_metaworld_validation_public_mask_consistent.json",
+    "validation_private": "results/prob_dcta_metaworld_validation_private_mask_consistent.json",
+    "test_public": "results/prob_dcta_metaworld_test_public_mask_consistent.json",
+    "test_private": "results/prob_dcta_metaworld_test_private_mask_consistent.json",
+    "development_generation": "results/prob_dcta_publication_v2_development_generation_final_r3.json",
+    "validation_generation": "results/prob_dcta_publication_v2_validation_generation.json",
+    "test_generation": "results/prob_dcta_publication_v2_test_generation.json",
+    "development_audits": "results/sc_dcta_metaworld_development.json",
+    "test_audits": "results/sc_dcta_metaworld_baselines.json",
+    "protocol_document": "docs/SC_DCTA_METAWORLD_RECOVERY_PROTOCOL.md",
+    "recovery_module": "src/mcx/metaworld_recovery.py",
+    "manifest_builder": "scripts/build_metaworld_recovery_manifests.py",
+    "exposure_evaluator": "scripts/evaluate_metaworld_forced_exposure.py",
+    "validation_runner": "scripts/run_sc_dcta_metaworld_validation_crossfit.py"
+  },
+  "artifact_hashes": {
+    "development_public": "098462411fa36174fe88e27450bccc4023f74ec27856b80c74575f00d5a2abd8",
+    "development_private": "4dd374be6334067cf812202a78a3afb94c1a781f770e5ca3833898f637dbc75b",
+    "validation_public": "b2b4ae6ea3dab8e403803bd4cde57cb9354990f8047738b269b0d44c693db378",
+    "validation_private": "9724d615fae70251a0ee3df33dae4eb3c634743a0eb4ea5fda405e196ebb060e",
+    "test_public": "ffed23cc04e2d239c5d477d18fed0826808921ed632ebe7cfd3b5baff5a4207c",
+    "test_private": "a255b523ce0db947ebd3ea39f8f77af9260d5d55e30f3bffbf27d322e7962bbe",
+    "development_generation": "d583127608635c3d9b8cb2df0d267e64b710a9505df8d79b3f4df18f637c010a",
+    "validation_generation": "b76548ec51cadc721196b97c419d7b17bfcbee0f7c4a96072193848a0ddcd555",
+    "test_generation": "9ba184c4741ad02c4b72c9252e3eb368a65652a21b17b212df8dc9c939fa15e0",
+    "development_audits": "6f6b4206977d5f60fe617d50879460eb906717da7a942f4156f1be36091e3a72",
+    "test_audits": "e96ed6aeec986944850f7fac6cb11f51178f7e575acdf9317d15b6ab4f7d4a60",
+    "protocol_document": "470d530f30f324f237ad3d91a87d17eb1faafe0e1a02e6213b4a39eb8cc4020f",
+    "recovery_module": "a708717ba2c78cd9ff15806eb21bebbeed50c9f34af877afad91ea65e2ae4cf1",
+    "manifest_builder": "2a71bbfc83bc71f8c63e1e10968776e7434df42daf84b0fe324e2f13a72b1e6c",
+    "exposure_evaluator": "36dfdb5237b64ce8facff788e3227e4e1ffc5008b5a989cbb92551b38d2e089f",
+    "validation_runner": "686cfc97673574768a24c1397e48b10d236b0833196f5cc3f8e85a94dfa686f5"
+  }
+}

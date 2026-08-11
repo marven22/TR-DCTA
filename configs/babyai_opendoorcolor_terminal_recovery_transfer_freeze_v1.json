@@ -1,0 +1,24 @@
+{
+  "protocol": "babyai_opendoorcolor_terminal_recovery_transfer_v1",
+  "phase": "locked_retrospective_transfer",
+  "seed_start": 60,
+  "seed_stop_exclusive": 300,
+  "colors": ["red", "green", "blue", "purple", "yellow", "grey"],
+  "variants": ["nearest", "farthest", "middle"],
+  "conditions": ["complete", "partial_33", "partial_67"],
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "quarantine_capacity": 3,
+  "random_replicates": 50,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260814,
+  "methods": [
+    "tr_dcta", "sc_dcta", "prob_dcta", "hard_source_dcta", "ens",
+    "source_ig", "static_risk", "random", "oracle_source",
+    "full_information_hindsight"
+  ],
+  "input_report": "reports/babyai_minigrid_heldout_evaluation_v1.json",
+  "input_report_sha256": "66fc3ca129c2b62f8290e42ca280e539e16c708b2d34eef0ad99f859c71885bd",
+  "tr_development_report": "reports/babyai_unlockpickup_terminal_recovery_development_v1.json",
+  "tr_development_report_sha256": "e4a4f6958d02bfa60e745b81818ee6d9b4688e75b0b31b08638a7a3687faec5b"
+}

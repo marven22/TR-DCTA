@@ -1,0 +1,11 @@
+-r core.txt
+torch==2.7.0
+sentence-transformers==4.1.0
+transformers==4.51.3
+gymnasium==1.1.1
+minigrid==3.0.0
+
+# MetaWorld/MuJoCo and LIBERO are installed from their upstream repositories.
+# See docs/DATASETS.md because compatible versions depend on the benchmark
+# checkout used to regenerate the frozen policies and trajectories.
+

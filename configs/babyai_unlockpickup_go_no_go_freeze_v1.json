@@ -1,0 +1,25 @@
+{
+  "protocol": "babyai_unlockpickup_distractor_go_no_go_v1",
+  "phase": "structural_go_no_go",
+  "env_id": "BabyAI-UnlockPickupDist-v0",
+  "package": {"minigrid": "3.0.0", "gymnasium": "1.1.1"},
+  "context_seeds": {"start": 0, "count": 60},
+  "source_colors": ["red", "green", "blue", "purple", "yellow", "grey"],
+  "descendant_variants": ["early_bind", "post_unlock_bind", "terminal_bind"],
+  "minimum_distractors": 4,
+  "repeat_checks": 30,
+  "qualification": {
+    "contexts": 60,
+    "target_colors": 6,
+    "transfer_outcomes": 1080,
+    "matching_local_successes": 180,
+    "mismatched_harmful_transfers": 900,
+    "early_key_progress": 300,
+    "post_unlock_progress": 300,
+    "terminal_target_reached": 300,
+    "targets_with_three_recovery_alternatives": 60,
+    "harmful_source_colors": 6,
+    "strict_stage_order_pairs": 300,
+    "repeat_checks": 30
+  }
+}

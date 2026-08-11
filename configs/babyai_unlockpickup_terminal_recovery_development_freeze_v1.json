@@ -1,0 +1,21 @@
+{
+  "protocol": "babyai_unlockpickup_terminal_recovery_development_v1",
+  "phase": "terminal_recovery_development",
+  "seed_start": 0,
+  "seed_stop_exclusive": 60,
+  "colors": ["red", "green", "blue", "purple", "yellow", "grey"],
+  "variants": ["early_bind", "post_unlock_bind", "terminal_bind"],
+  "stage_harm_weights": [1.0, 2.0, 3.0],
+  "cascade_length_prior": [0.3333333333333333, 0.3333333333333333, 0.3333333333333333],
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "quarantine_capacity": 3,
+  "noninferiority_margin": 0.05,
+  "methods": [
+    "tr_dcta", "sc_dcta", "prob_dcta", "hard_source_dcta", "ens",
+    "source_ig", "source_then_dcta", "positive_only_dcta", "static_risk",
+    "random", "oracle_source", "full_information_hindsight"
+  ],
+  "input_report": "reports/babyai_unlockpickup_method_development_v1.json",
+  "input_report_sha256": "7c4d6125e3bbd05065575dbdc391a1717c4b5c1a77523acdfdb8dccea4bb5c18"
+}

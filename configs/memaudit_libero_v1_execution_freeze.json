@@ -1,0 +1,16 @@
+{
+  "protocol": "memaudit-libero-v1/execution-freeze",
+  "frozen_at_utc": "2026-08-05T11:24:40.4421564Z",
+  "status": "frozen after a two-archive interface dry run and before the complete 67-archive run",
+  "dry_run_use": "interface validation only; no method parameter was changed",
+  "sha256": {
+    "core": "3eb06b1783a83d3ab0567a6dca1cd6c1184d53c40214dc51b72cacd6d2afc922",
+    "libero_adapter": "e77532eca4de9cd420abffe3c50130e280590c4ef032c8235830c02b1d26b4bd",
+    "runner": "c7a29677705be73c3df151f46611ab335e6aa9f503c2c454962184e7c3987355",
+    "configuration": "bf22f2e609e054ded13663d08f16c04ad33814e2c5e54e74f2c6b694853a0aed",
+    "public_ledger": "35d7c66ee6921c73154234016074bef43c3434e0e686dce7257107836aa0416e",
+    "physical_screen": "cc6720f5b684324edf184da703c530a2ab692d9fd248b9649add2e636c04f4f0"
+  },
+  "expected_archive_count": 67,
+  "private_labels_permitted": false
+}

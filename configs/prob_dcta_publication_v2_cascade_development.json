@@ -1,0 +1,80 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/cascade-development-fit",
+  "created_at_utc": "2026-08-05T15:38:34.357165+00:00",
+  "l2": 1.0,
+  "contamination_features": [
+    "root",
+    "merge",
+    "parent_similarity",
+    "extra_parents",
+    "target_similarity"
+  ],
+  "emission_features": [
+    "target_similarity",
+    "source_similarity",
+    "parent_similarity",
+    "depth",
+    "merge",
+    "citation_count"
+  ],
+  "contamination": {
+    "means": [
+      0.2,
+      0.6,
+      0.5109967918740907,
+      0.16428571428571428,
+      0.10051387833150184
+    ],
+    "scales": [
+      0.4,
+      0.48989794855663565,
+      0.1994161043637322,
+      0.37053463855265534,
+      0.11650855391009533
+    ],
+    "coefficients": [
+      5.664454211985169,
+      0.6447517119189209,
+      -0.6176459625709201,
+      0.7855954211453134,
+      -0.5124156011899401,
+      0.11122170846835289
+    ]
+  },
+  "emission": {
+    "means": [
+      0.10051757529791551,
+      0.3517462636214067,
+      0.5124172693683786,
+      0.6177458033573142,
+      0.5971223021582733,
+      0.49160671462829736
+    ],
+    "scales": [
+      0.11676726491465085,
+      0.1961166002803797,
+      0.19883965543317836,
+      0.315824379207136,
+      0.4904765625628579,
+      0.2012389095674556
+    ],
+    "coefficients": [
+      0.9171399528792946,
+      -0.6836610523593316,
+      1.2791031450093175,
+      0.2818612764300847,
+      0.2392417149590446,
+      0.26264211473527593,
+      -0.36327698445644707
+    ]
+  },
+  "latent_edge_probability": 0.5,
+  "training_counts": {
+    "contamination_rows": 420,
+    "emission_rows": 417
+  },
+  "source_hashes": {
+    "public": "6664114dbeae31ef3e36034192b3795c30118996c66ebaca16e2bff169813b85",
+    "private": "f01ba94a1af0e2fa930f03b1a83aded40382ef9aabb0feb024ba19e18811d852"
+  }
+}

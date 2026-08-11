@@ -1,0 +1,126 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/inference-final-freeze",
+  "particles": 2048,
+  "particle_convergence_reference": 8192,
+  "budgets": [
+    2,
+    4,
+    8
+  ],
+  "primary_budget": 4,
+  "primary_provenance_missing_rate": 0.25,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260805,
+  "harm_weight": "1 + 0.25*normalized_time + 0.25*normalized_descendant_reach",
+  "created_at_utc": "2026-08-05T16:12:14.492762+00:00",
+  "primary_method": "prob_dcta",
+  "validation_checks": {
+    "prob_beats_top1": true,
+    "prob_top1_ci_excludes_zero": true,
+    "prob_beats_acis": true,
+    "prob_within_003_of_ens": true,
+    "particle_validation_passed": true
+  },
+  "validation_primary_summary": {
+    "random": {
+      "macro_recall": 0.16496598639455784,
+      "weighted_recall": 0.16516040812800922,
+      "source_brier": 0.1988012464722854
+    },
+    "acis_risk": {
+      "macro_recall": 0.3376700680272109,
+      "weighted_recall": 0.33302336193758314,
+      "source_brier": 0.21541086610941682
+    },
+    "static_risk": {
+      "macro_recall": 0.19982993197278912,
+      "weighted_recall": 0.20303222450623762,
+      "source_brier": 0.6461486589340937
+    },
+    "positive_only_risk": {
+      "macro_recall": 0.2667800453514739,
+      "weighted_recall": 0.26917268853093246,
+      "source_brier": 0.4608825433840836
+    },
+    "top1_dcta": {
+      "macro_recall": 0.3663832199546485,
+      "weighted_recall": 0.36658812551999764,
+      "source_brier": 1.0476190476190477
+    },
+    "source_ig": {
+      "macro_recall": 0.1993764172335601,
+      "weighted_recall": 0.1987768638944219,
+      "source_brier": 0.0010552510466606
+    },
+    "source_then_dcta": {
+      "macro_recall": 0.47959183673469385,
+      "weighted_recall": 0.479692664280361,
+      "source_brier": 0.03742830734107528
+    },
+    "ens": {
+      "macro_recall": 0.5147392290249433,
+      "weighted_recall": 0.5122313464970313,
+      "source_brier": 0.03212706472537341
+    },
+    "prob_dcta": {
+      "macro_recall": 0.48486394557823126,
+      "weighted_recall": 0.48508178091764115,
+      "source_brier": 0.08023445669776089
+    },
+    "known_source_dcta": {
+      "macro_recall": 0.6441326530612245,
+      "weighted_recall": 0.6447859448543424,
+      "source_brier": 0.0
+    }
+  },
+  "validation_comparisons": {
+    "prob_minus_top1": {
+      "estimate": 0.11848072562358276,
+      "lower_95": 0.031207482993197266,
+      "upper_95": 0.20362811791383223,
+      "task_count": 14,
+      "wins": 11,
+      "ties": 0,
+      "losses": 3
+    },
+    "prob_minus_acis": {
+      "estimate": 0.14719387755102042,
+      "lower_95": 0.05694444444444443,
+      "upper_95": 0.23460884353741496,
+      "task_count": 14,
+      "wins": 11,
+      "ties": 0,
+      "losses": 3
+    },
+    "prob_minus_ens": {
+      "estimate": -0.029875283446712024,
+      "lower_95": -0.07658730158730155,
+      "upper_95": 0.012329931972789102,
+      "task_count": 14,
+      "wins": 4,
+      "ties": 5,
+      "losses": 5
+    }
+  },
+  "particle_validation_summary": {
+    "archive_count": 42,
+    "mean_marginal_absolute_difference": 0.008006539204223355,
+    "worst_marginal_absolute_difference": 0.0367431640625,
+    "worst_source_probability_difference": 0.035400390625
+  },
+  "artifact_hashes": {
+    "evaluator": "b441581997a6a47fda8779ebb236c84f19bd1ef3fa14866b4cbbccbf2aeab5e0",
+    "posterior": "c2d42574203f78b154097a47cda2f814f481c033c6d0fd3114e96efc6e7d0ba3",
+    "source_prior": "081ef66cd21c0663746d9bb01c8f55500c0a4b51682ad1dee23aa5b0fa805c46",
+    "latent_acquisition": "0b44465b3073124c82f9aed8b6c3c50d4bc3cc838f332c474216fc0f2e5c1f8a",
+    "acis_adapter": "eb2a1af240abb06d6f0efb1d9d5a0e7c98ae08fa331d661546a004a22cf4fe6a",
+    "ens": "1687e65e33790dcbd3eb569b368458515c5799d5e2f19a2ac895adce66dc8f98",
+    "source_config": "68dcd5551a55142fadd72099757f0b3c671eca2bc974909acb1c1ce2e1cede2e",
+    "cascade_config": "84f893449dc078d242f65eb0db8ff63d9cc3b58fea19d9715af787210c48ea02",
+    "acis_config": "d04c2ea4a14baa8d6b6b79bfe9e46c80513421f854e874dc20c425e2f458b99c",
+    "candidate_config": "43e86dbf497f0c64619597de74396c892fe266becac2155972998162a0d5d922",
+    "particle_validation": "898a5ef3ebd622d0f00dbdff135d343218c83518bf9739b0e98a6d73ba25c6b2",
+    "performance_validation": "ec0483b642c46da307923bc72a98ab9218b36e5285095225ea927bf32e888afe"
+  },
+  "test_labels_seen": false
+}

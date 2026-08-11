@@ -1,0 +1,34 @@
+{
+  "protocol": "sc-dcta/metaworld-provenance-recovery-freeze-v1",
+  "created_at_utc": "2026-08-06T00:00:00-04:00",
+  "status": "frozen-before-0-and-50-percent-recovery-evaluation",
+  "provenance_missing_rates": [0.0, 0.25, 0.5],
+  "replay_budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "primary_contrast": "task-macro degradation from 0.0 to 0.5",
+  "bootstrap_draws": 10000,
+  "bootstrap_cluster": "task_key",
+  "primary_split": "test",
+  "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+  "semantic_model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+  "methods": [
+    "sc_dcta",
+    "ens_shared_posterior",
+    "hard_source_dcta",
+    "source_then_dcta",
+    "floored_prob_dcta",
+    "known_source_dcta",
+    "full_information_oracle"
+  ],
+  "artifact_hashes": {
+    "protocol": "315e3507f19bfca204a0d659f19075717d56458a3e057037c1f2f9dcd5229db2",
+    "manifest_builder": "2a71bbfc83bc71f8c63e1e10968776e7434df42daf84b0fe324e2f13a72b1e6c",
+    "exposure_evaluator": "36dfdb5237b64ce8facff788e3227e4e1ffc5008b5a989cbb92551b38d2e089f",
+    "development_audits": "6f6b4206977d5f60fe617d50879460eb906717da7a942f4156f1be36091e3a72",
+    "validation_audits": "1d17ff91bcdb6cc76129135c9c1ad2d776cc4983f7d81164e4677947592d588a",
+    "test_audits": "e96ed6aeec986944850f7fac6cb11f51178f7e575acdf9317d15b6ab4f7d4a60",
+    "development_public": "098462411fa36174fe88e27450bccc4023f74ec27856b80c74575f00d5a2abd8",
+    "validation_public": "b2b4ae6ea3dab8e403803bd4cde57cb9354990f8047738b269b0d44c693db378",
+    "test_public": "ffed23cc04e2d239c5d477d18fed0826808921ed632ebe7cfd3b5baff5a4207c"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "tr-dcta-paper-metrics-v1",
+  "metaworld": {
+    "primary_scope": "test",
+    "tasks": 29,
+    "archives": 87,
+    "episodes": 565,
+    "recovery_counts": {
+      "tr_dcta": 322,
+      "sc_dcta": 289,
+      "sc_ens": 287,
+      "known_source_dcta": 297,
+      "full_information_oracle": 325
+    },
+    "task_clustered_recovery_differences": {
+      "tr_dcta_minus_sc_dcta": {
+        "estimate": 0.06420262462351711,
+        "lower_95": 0.03007648200345969,
+        "upper_95": 0.10482951801410219
+      },
+      "tr_dcta_minus_sc_ens": {
+        "estimate": 0.06753356515019801,
+        "lower_95": 0.03193035835023665,
+        "upper_95": 0.10959164229955305
+      }
+    },
+    "all49": {
+      "tasks": 49,
+      "archives": 147,
+      "episodes": 919,
+      "tr_dcta_recoveries": 534,
+      "sc_dcta_recoveries": 480,
+      "sc_ens_recoveries": 479,
+      "full_information_recoveries": 539
+    }
+  },
+  "babyai_unlockpickup": {
+    "contexts": 240,
+    "primary_budget": 4,
+    "primary_views": ["partial_33", "partial_67"],
+    "recovery_rates": {
+      "tr_dcta": 0.8875,
+      "sc_dcta": 0.8333333333333334,
+      "ens": 0.8645833333333334,
+      "known_source_dcta": 0.8541666666666666,
+      "full_information_hindsight": 1.0
+    }
+  },
+  "babyai_opendoorcolor": {
+    "contexts": 240,
+    "budget": 4,
+    "recovery_counts": {
+      "partial_33": {"tr_dcta": 240, "sc_dcta": 236, "ens": 236},
+      "partial_67": {"tr_dcta": 150, "sc_dcta": 126, "ens": 128}
+    }
+  }
+}

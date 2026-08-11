@@ -1,0 +1,44 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/metaworld-adapted-source-validation-freeze",
+  "created_at_utc": "2026-08-05T19:48:36.283730+00:00",
+  "model": "binary-logit-normalized",
+  "features": [
+    "source_target",
+    "direct_target",
+    "reachable_target",
+    "source_reachable",
+    "edge_coherence",
+    "reachable_size"
+  ],
+  "l2": 1.0,
+  "minimum_source_probability": 0.05,
+  "means": [
+    0.1405781872448539,
+    0.12002360566086057,
+    0.09775346405686963,
+    0.39418661979584974,
+    0.47692970740263774,
+    1.0
+  ],
+  "scales": [
+    0.10770414505642349,
+    0.08487152601806676,
+    0.05582792766810507,
+    0.0756550261585917,
+    0.07607082261972688,
+    1e-06
+  ],
+  "coefficients": [
+    -1.831744873980407,
+    -2.8887691792003265,
+    -1.000788095881652,
+    0.42166412751415033,
+    -0.528090111116379,
+    0.6397515845999966,
+    0.0
+  ],
+  "training_task_count": 10,
+  "training_archive_count": 30,
+  "training_row_count": 90,
+  "development_only": true
+}

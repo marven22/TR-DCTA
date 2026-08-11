@@ -1,0 +1,12 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/metaworld-screen-freeze",
+  "metaworld_version": "3.0.0",
+  "mujoco_version": "3.11.0",
+  "gymnasium_version": "1.3.0",
+  "seeds": [1101, 2202, 3303],
+  "required_donors_per_target": 3,
+  "minimum_eligible_targets": 35,
+  "success_definition": "success_once",
+  "rendering_mode": "physics_only"
+}
+

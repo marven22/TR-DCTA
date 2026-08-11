@@ -1,0 +1,26 @@
+{
+  "protocol": "babyai_minigrid_open_door_color_go_no_go_v1",
+  "phase": "structural_go_no_go",
+  "package": {
+    "minigrid": "3.0.0",
+    "gymnasium": "1.1.1"
+  },
+  "env_id": "BabyAI-OpenDoorColor-v0",
+  "seed_scan_limit": 500,
+  "num_contexts": 60,
+  "strategy_colors": ["red", "green", "blue", "purple", "yellow", "grey"],
+  "strategy_variants": ["nearest", "farthest", "middle"],
+  "max_steps": 128,
+  "qualification": {
+    "minimum_contexts": 60,
+    "minimum_target_colors": 4,
+    "minimum_completed_outcomes": 1080,
+    "minimum_local_correct_outcomes": 180,
+    "minimum_harmful_family_target_transfers": 180,
+    "minimum_targets_with_harm": 50,
+    "minimum_targets_with_recovery": 50,
+    "minimum_harmful_source_colors": 4,
+    "minimum_recovery_alternatives": 3,
+    "minimum_repeat_checks": 12
+  }
+}

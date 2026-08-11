@@ -1,0 +1,57 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/source-estimator-freeze",
+  "created_at_utc": "2026-08-05T15:40:40.390617+00:00",
+  "model": "binary-logit-normalized",
+  "features": [
+    "source_target",
+    "direct_target",
+    "reachable_target",
+    "source_reachable",
+    "edge_coherence",
+    "reachable_size"
+  ],
+  "l2": 1.0,
+  "means": [
+    0.29426443826772697,
+    0.5238350701378476,
+    0.4063627110930876,
+    0.23795967228166479,
+    0.4472532610694978,
+    0.375
+  ],
+  "scales": [
+    0.0758453747525356,
+    0.17621187199764032,
+    0.10533100137177051,
+    0.054026491148887607,
+    0.0753884253855221,
+    1e-06
+  ],
+  "coefficients": [
+    -0.722046747954378,
+    0.25708365846621506,
+    -0.7628539844580091,
+    0.7568440474114112,
+    -0.28538226470700384,
+    -0.20900457823148189,
+    0.0
+  ],
+  "minimum_source_probability": 0.05,
+  "training": {
+    "archive_count": 60,
+    "top1_accuracy": 0.43333333333333335,
+    "mean_true_probability": 0.3596369120567492,
+    "mean_brier": 0.6239742575921797
+  },
+  "old_heldout_evaluation": {
+    "archive_count": 141,
+    "top1_accuracy": 0.5177304964539007,
+    "mean_true_probability": 0.3586475465527127,
+    "mean_brier": 0.6249296330403359
+  },
+  "source_hashes": {
+    "public": "a9246ae409318bc04183231364b916103341fab43bcf8cd24e774464822c30a4",
+    "private": "3809af5f96222322dd5277641c2bdc5b61b1a2bc964fe046aacb1c708bdcbad5"
+  },
+  "v2_labels_used": false
+}

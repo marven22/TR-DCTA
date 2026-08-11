@@ -1,0 +1,25 @@
+{
+  "protocol": "memory-libero/multi-origin-probability-v1/freeze",
+  "base_protocol": "memory-libero/external-validation-v1/generation",
+  "branch_count": 3,
+  "branch_depth": 3,
+  "split_counts": {
+    "development": 10,
+    "validation": 10,
+    "test": 47
+  },
+  "conditions": {
+    "known": {"true_accuracy": 1.0, "assumed_accuracy": 1.0},
+    "high": {"true_accuracy": 0.75, "assumed_accuracy": 0.75},
+    "medium": {"true_accuracy": 0.5, "assumed_accuracy": 0.5},
+    "uniform": {"true_accuracy": null, "assumed_accuracy": 0.3333333333333333},
+    "wrong60": {"true_accuracy": 0.2, "assumed_accuracy": 0.6}
+  },
+  "budgets": [2, 4, 6],
+  "primary_budget": 4,
+  "primary_conditions": ["high", "medium", "uniform"],
+  "risk_weights": "unit",
+  "depth_metric_weights": [1.0, 2.0, 3.0],
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260805
+}

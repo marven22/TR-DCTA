@@ -1,0 +1,11 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/inference-validation-candidate",
+  "particles": 2048,
+  "particle_convergence_reference": 8192,
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "primary_provenance_missing_rate": 0.25,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260805,
+  "harm_weight": "1 + 0.25*normalized_time + 0.25*normalized_descendant_reach"
+}

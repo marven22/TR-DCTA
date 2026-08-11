@@ -1,0 +1,40 @@
+{
+  "protocol": "memaudit-libero-v1/paper-reconstruction-freeze",
+  "paper": "https://arxiv.org/abs/2605.23723v1",
+  "official_code_available_as_of": "2026-08-05",
+  "official_code_available": false,
+  "paper_parameters": {
+    "alpha": 0.6,
+    "batch_auditing": true,
+    "binary_task_aligned_harm": true
+  },
+  "declared_reconstruction_choices": {
+    "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+    "semantic_model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "nli_model": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nli_model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb",
+    "semantic_neighbors": 5,
+    "retrieval_top_k": 5,
+    "nli_direction": "ordered memory-to-neighbor contradiction probability",
+    "score_normalization": "per-archive min-max",
+    "tie_break": "creation order for retrieval; lexicographic memory ID for final rank",
+    "removal_budgets": [2, 4, 6, 9]
+  },
+  "agent": {
+    "checkpoint": "Qwen/Qwen2.5-14B-Instruct",
+    "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+    "decoding": "greedy",
+    "max_new_tokens": 64,
+    "parse_retries": 1
+  },
+  "comparison_accounting": {
+    "memaudit_native": "all retrieved memories receive CMIS counterfactual replay before batch removal",
+    "dcta": "physical audit budget remains 2, 4, 6, or 9",
+    "required_reporting": [
+      "counterfactual replay calls",
+      "removal recall",
+      "ASR before and after removal",
+      "harmful-event archive count"
+    ]
+  }
+}

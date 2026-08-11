@@ -1,0 +1,32 @@
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Local environments and editor state
+.venv/
+venv/
+.env
+.vscode/
+.idea/
+
+# Downloaded datasets, checkpoints, caches, and generated artifacts
+data/
+datasets/
+checkpoints/
+.cache/
+results/*
+reports/*
+artifacts/downloads/
+
+# Retain directory documentation
+!results/.gitkeep
+!reports/.gitkeep
+
+# Platform files
+.DS_Store
+Thumbs.db
+

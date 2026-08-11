@@ -1,0 +1,71 @@
+{
+  "protocol": "active-search-baselines-v1/development-freeze",
+  "created_at_utc": "2026-08-05T03:21:38.109906+00:00",
+  "primary_budget": 4,
+  "ens": {
+    "posterior": "frozen DCTA finite-world posterior",
+    "outcome_integration": "exact",
+    "author_repository": "https://github.com/shalijiang/efficient_nonmyopic_active_search",
+    "author_repository_commit": "6ac08c088dd903ef8a39381380f533889537b9ba"
+  },
+  "graph_active_search": {
+    "eta": 0.5,
+    "prior_strength": "1 / archive node count",
+    "prior_probability": 0.1527777777777778,
+    "alpha_grid": [
+      0.0,
+      0.1,
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "development_results": {
+      "0.0": {
+        "macro_recall": 0.3898809523809524,
+        "mean_discoveries": 0.6666666666666666
+      },
+      "0.1": {
+        "macro_recall": 0.46726190476190477,
+        "mean_discoveries": 1.0
+      },
+      "0.01": {
+        "macro_recall": 0.46726190476190477,
+        "mean_discoveries": 1.0
+      },
+      "0.001": {
+        "macro_recall": 0.3898809523809524,
+        "mean_discoveries": 0.6666666666666666
+      },
+      "0.0001": {
+        "macro_recall": 0.3898809523809524,
+        "mean_discoveries": 0.6666666666666666
+      }
+    },
+    "selected_alpha": 0.01,
+    "tie_break": "highest macro recall, highest mean discoveries, then smallest alpha",
+    "paper": "https://www.cse.wustl.edu/~garnett/files/papers/wang_et_al_kdd_2013.pdf"
+  },
+  "training": {
+    "archive_count": 12,
+    "archive_ids": [
+      "v041_libero_10_00",
+      "v041_libero_10_01",
+      "v041_libero_10_04",
+      "v041_libero_10_09",
+      "v041_libero_object_00",
+      "v041_libero_object_01",
+      "v041_libero_object_03",
+      "v041_libero_object_05",
+      "v041_libero_object_07",
+      "v041_libero_object_08",
+      "v041_libero_object_09",
+      "v041_libero_spatial_00"
+    ],
+    "generation_sha256": "1fc7273e052407adb297160bb37214d2eb5ff053cc3782b5dd0363032075f99d"
+  },
+  "implementation": {
+    "sha256": "1687e65e33790dcbd3eb569b368458515c5799d5e2f19a2ac895adce66dc8f98",
+    "ens_reference_sha256": "f58f056414f7fd24fc41ad0be269c7d1560fd4b6cf3a0af7ac140bf87bca5ff7",
+    "graph_paper_sha256": "e2cee26fa47be0da48d4fb3475157e414212ae8f7352e80e92f224c7f8c41f09"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "protocol": "memory-libero/multi-origin-publication-v2/heldout-manifest",
+  "libero_commit": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+  "suites": {
+    "libero_90": {
+      "task_indices": [21, 23, 24, 32, 38, 39, 40, 47, 49, 50, 51, 63, 65, 66, 72, 73, 74, 75, 78, 81, 83, 86, 87],
+      "demo_indices": [2, 3]
+    },
+    "libero_spatial": {
+      "task_indices": [3, 4, 5, 7],
+      "demo_indices": [0, 1]
+    },
+    "libero_object": {
+      "task_indices": [2, 4, 6],
+      "demo_indices": [0, 1]
+    },
+    "libero_goal": {
+      "task_indices": [3, 4, 5, 8],
+      "demo_indices": [0, 1]
+    },
+    "libero_10": {
+      "task_indices": [2, 3, 5, 6, 7, 8],
+      "demo_indices": [0, 1]
+    }
+  },
+  "required_donors_per_target": 3,
+  "minimum_eligible_targets": 24,
+  "minimum_contributing_suites": 3,
+  "maximum_single_suite_fraction": 0.75
+}
+

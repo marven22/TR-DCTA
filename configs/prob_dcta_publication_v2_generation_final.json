@@ -1,0 +1,26 @@
+{
+  "protocol": "memory-corruption/multi-origin-publication-v2/generation-final-freeze",
+  "prompt_version": "multi-origin-v2-causally-ranked-inheritance-v4",
+  "writer_model": "Qwen/Qwen2.5-14B-Instruct",
+  "writer_revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+  "decoding": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "max_new_tokens": 256,
+    "enable_thinking": false
+  },
+  "attempts_per_memory": 2,
+  "generation_batch_size": 12,
+  "branch_regimes": ["persistent", "recovery", "revival"],
+  "branch_depth": 5,
+  "shared_node_count": 6,
+  "target_replay_policy": "observed_only_at_recovery_steps",
+  "replay_free_policy_rule": "inherit_first_retrieved_policy_exactly",
+  "format_sanitizer": "after two failed attempts, redact exact private identifiers from prose and remove non-retrieved citations; never alter recommended_policy_id",
+  "development_history": [
+    "v1 omniscient replay evidence: rejected for sparse functional harm",
+    "v2 selective replay: rejected for insufficient cross-benchmark shared harm",
+    "v3 explicit replay-free inheritance: functional pilot passed but causal audit found ranking-only contamination",
+    "v4 causal ranking: reorder only when a retrieved parent differs under the source intervention"
+  ]
+}
