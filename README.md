@@ -28,6 +28,10 @@ Exact expected counts, intervals, and artifact hashes are stored in
 model checkpoints, simulator caches, and episode-level outputs are deliberately
 not committed.
 
+For a complete student-oriented explanation—from the meaning of a memory and a
+replay through the posterior, rollout algorithm, theory, worked example, and
+experimental interpretation—read [`docs/TR_DCTA_EXPLAINED.md`](docs/TR_DCTA_EXPLAINED.md).
+
 ## Repository map
 
 ```text
