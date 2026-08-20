@@ -1,0 +1,17 @@
+{
+  "protocol": "ddxplus_tr_dcta_v1",
+  "benchmark": "ddxplus",
+  "budget": 4,
+  "particles": 512,
+  "source_proposal_floor": 0.05,
+  "l2": 1.0,
+  "primary_provenance_missing_rate": 0.25,
+  "retrieval_scorer": "token_overlap_v1",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260901,
+  "random_replicates": 5,
+  "comparators": [
+    "sc_dcta", "prob_dcta", "ens", "hard_source_dcta", "source_then_dcta",
+    "static_risk", "random", "known_source_dcta", "full_information_oracle"
+  ]
+}

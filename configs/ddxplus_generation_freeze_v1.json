@@ -1,0 +1,15 @@
+{
+  "protocol": "ddxplus_generation_v1",
+  "benchmark": "ddxplus",
+  "population_ledger": "results/ddxplus_population_v1.json",
+  "population_identity_sha256": "e667514fc1c41069c13a436565040358a845703f9eeff0e835ba4e5f511d52aa",
+  "writer": "ddxplus-template-v1",
+  "expected_task_count": 44,
+  "rotations": 3,
+  "mask_rates": [
+    0.0,
+    0.25,
+    0.5
+  ],
+  "primary_provenance_missing_rate": 0.25
+}

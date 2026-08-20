@@ -1,0 +1,24 @@
+{
+  "protocol": "ddxplus_screen_v1",
+  "benchmark": "ddxplus",
+  "release": {
+    "repository": "https://github.com/mila-iqia/ddxplus",
+    "figshare_english": "https://figshare.com/articles/dataset/DDXPlus_Dataset_English_/22687585",
+    "license": "CC-BY-4.0",
+    "downloaded_version": null,
+    "doi": null
+  },
+  "paths": {
+    "evidences": "data/ddxplus/release_evidences.json",
+    "conditions": "data/ddxplus/release_conditions.json",
+    "patients": "data/ddxplus/release_train_patients.zip"
+  },
+  "donor_count": 3,
+  "minimum_eligible_pathologies": 34,
+  "contradiction_penalty": 1.0,
+  "minimum_evidences": 4,
+  "cases_per_pathology": 1,
+  "candidate_scan_limit": 200000,
+  "max_candidates_per_pathology": 64,
+  "presentation_findings": 12
+}

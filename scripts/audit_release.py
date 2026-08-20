@@ -8,7 +8,12 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-IGNORED_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache"}
+# Directories and files that .gitignore already excludes can never reach a
+# release, so scanning them only produces false alarms on a working checkout
+# that has benchmark downloads in place.
+IGNORED_PARTS = {".git", ".venv", "venv", "__pycache__", ".pytest_cache",
+                 "data", "datasets", "checkpoints", ".cache"}
+IGNORED_NAMES = {".DS_Store", "Thumbs.db"}
 FORBIDDEN_SUFFIXES = {".pdf", ".pt", ".pth", ".bin", ".sqlite", ".db", ".hdf5", ".h5"}
 ABSOLUTE = re.compile(r"(?:[A-Za-z]:[\\/](?:Users|home)[\\/]|/home/|/Users/)")
 SECRET_ASSIGNMENT = re.compile(
@@ -18,6 +23,7 @@ SECRET_ASSIGNMENT = re.compile(
 
 def included_files() -> list[Path]:
     return [path for path in ROOT.rglob("*") if path.is_file()
+            and path.name not in IGNORED_NAMES
             and not any(part in IGNORED_PARTS for part in path.parts)]
 
 

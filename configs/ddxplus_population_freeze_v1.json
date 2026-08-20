@@ -1,0 +1,9 @@
+{
+  "protocol": "ddxplus_population_v1",
+  "benchmark": "ddxplus",
+  "screen_ledger": "results/ddxplus_screen_v1.json",
+  "screen_ledger_sha256": null,
+  "expected_task_count": 44,
+  "required_donors_per_target": 3,
+  "split_fractions": [0.20, 0.20, 0.60]
+}

@@ -1,0 +1,112 @@
+# DDXPlus TR-DCTA transfer protocol v1
+
+## Purpose
+
+Evaluate the frozen terminal-recovery instantiation of TR-DCTA on a third
+domain that shares no mechanism with the existing robotics evaluations. BabyAI
+and MetaWorld are both embodied; DDXPlus is textual medical decision making.
+The question is whether terminal-recovery-aware acquisition transfers to a
+domain whose remediation, retrieval, and failure mode are unrelated to robot
+control.
+
+No TR-DCTA parameter, posterior setting, utility, mask rate, or replay budget
+is tuned on DDXPlus. The method is used exactly as frozen for MetaWorld.
+
+## What is executable in DDXPlus
+
+DDXPlus distributes static patient records rather than a simulator, so the
+domain must define what executing a memory means. A *policy* is a diagnostic
+procedure anchored on one pathology. Executing it acquires that pathology's
+canonical evidence set from the patient record, scores every condition over the
+acquired answers only, and emits the argmax condition or nothing. The emitted
+pathology is compared with the record's `PATHOLOGY` field.
+
+Replay labels are therefore ground truth from execution and no language model
+is consulted, preserving the ideal-binary-feedback assumption the method's
+guarantee requires. An anchored procedure can succeed on a patient it was not
+anchored to and can fail on one it was, so donor failure is an empirical
+screening outcome rather than a property of the decision rule.
+
+## Scope and primary condition
+
+- 44 pathologies drawn from DDXPlus's 49, one patient case each.
+- Splits 9 development, 9 validation, 26 test, by the frozen 20/20/60 hash rule.
+- Three source rotations per task: 132 primary archives.
+- Twenty-five percent missing provenance.
+- Four distinct replays per archive.
+- One forced-exposure episode per affected memory.
+- Quarantine restricted to replay-confirmed harmful memories.
+- Recovery executes the first surviving memory in the retrieval ranking.
+
+## Eligibility gate
+
+A case is eligible when the procedure anchored on its true pathology diagnoses
+it correctly and all three donor procedures fail. Donors are drawn from the
+record's own `DIFFERENTIAL_DIAGNOSIS`, so a corrupted memory recommends a
+confusable workup rather than an implausible one.
+
+The feasibility floor is 34 eligible pathologies, mirroring the MetaWorld
+screen's declared 35-of-50 proportion. It is pre-declared, not fitted to the
+observed yield, and is pinned by `mcx.ddxplus.validate_screen_config`.
+
+## Archive construction
+
+The frozen 21-node, three-origin publication-v2 graph is reused unchanged.
+Memory text is composed by a deterministic template writer rather than the
+pinned Qwen checkpoint. All variants share one sentence frame and differ only
+in which findings they name, so no phrase distinguishes a harmful memory from a
+safe one. Corruption transmits through an active parent with probability 0.7,
+so contamination is not a deterministic function of graph reachability.
+
+## Posterior fitting contract
+
+- Development: for each held task, fit on complete-provenance archives from the
+  other development tasks.
+- Validation: for each held task, fit on complete-provenance archives from the
+  other development and validation tasks.
+- Test: fit once on all development and validation tasks; the 26 test tasks are
+  excluded.
+
+Proposal floor 0.05, L2 1.0, stable archive-derived seeds.
+
+## Declared deviations from the MetaWorld contract
+
+1. Retrieval is scored by token overlap rather than the pinned sentence
+   encoder. DDXPlus memory text is template generated and carries no lexical
+   signal that the overlap scorer cannot already see.
+2. Posterior sampling uses 512 particles rather than 2,048.
+3. Memory text is template generated rather than model written.
+
+Each deviation makes the domain simpler, not the method stronger, and each is
+recorded in the emitted report.
+
+## Execution
+
+```bash
+python scripts/run_prob_dcta_ddxplus_screen.py \
+  --config configs/ddxplus_screen_freeze_v1.json \
+  --output results/ddxplus_screen_v1.json
+python scripts/build_ddxplus_population_v1.py \
+  --config configs/ddxplus_population_freeze_v1.json \
+  --output results/ddxplus_population_v1.json
+python scripts/build_ddxplus_generation_v1.py \
+  --config configs/ddxplus_generation_freeze_v1.json \
+  --output results/ddxplus_generation_v1.json
+python scripts/build_ddxplus_ledgers_v1.py \
+  --generation results/ddxplus_generation_v1.json
+python scripts/run_ddxplus_tr_dcta_v1.py \
+  --config configs/ddxplus_tr_dcta_freeze_v1.json \
+  --generation results/ddxplus_generation_v1.json \
+  --output results/ddxplus_tr_dcta_v1.json --workers 8
+python scripts/verify_ddxplus_tr_dcta_v1.py \
+  --config configs/ddxplus_tr_dcta_freeze_v1.json \
+  --generation results/ddxplus_generation_v1.json \
+  --report results/ddxplus_tr_dcta_v1.json \
+  --output results/ddxplus_tr_dcta_verified_v1.json
+```
+
+## Claim boundary
+
+DDXPlus is synthetically generated by a rule-based simulator. This evaluation
+supports no clinical claim of any kind. It is an audit-method transfer
+evaluation over medical decision text.
