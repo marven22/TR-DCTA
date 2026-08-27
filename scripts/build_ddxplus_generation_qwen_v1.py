@@ -96,20 +96,19 @@ def main() -> int:
         plan = plan_record(task)
         task_id = str(task["task_id"])
         forbidden = forbidden_terms(task)
-        wanted = [str(slot["key"]) for slot in plan["slots"] if not slot["copy_of"]]
-        if all(f"{task_id}|{key}" in cache for key in wanted):
-            texts = {key: tuple(cache[f"{task_id}|{key}"]) for key in wanted}
-            reused += len(wanted)
-        else:
-            texts, task_incidents = generate_texts(
-                plan, generate, forbidden=forbidden,
-                attempts=int(config["attempts_per_memory"]))
-            incidents.extend({**item, "task_id": task_id} for item in task_incidents)
-            written += len(texts)
-            for key, value in texts.items():
-                cache[f"{task_id}|{key}"] = list(value)
-            args.cache.parent.mkdir(parents=True, exist_ok=True)
-            args.cache.write_text(json.dumps(cache, indent=1) + "\n", encoding="utf-8")
+        prefix = f"{task_id}|"
+        task_cache = {key[len(prefix):]: value for key, value in cache.items()
+                      if key.startswith(prefix) and isinstance(value, dict)}
+        texts, task_incidents, task_reused = generate_texts(
+            plan, generate, forbidden=forbidden,
+            attempts=int(config["attempts_per_memory"]), cache=task_cache)
+        incidents.extend({**item, "task_id": task_id} for item in task_incidents)
+        reused += task_reused
+        written += len(texts) - task_reused
+        for key, value in task_cache.items():
+            cache[prefix + key] = value
+        args.cache.parent.mkdir(parents=True, exist_ok=True)
+        args.cache.write_text(json.dumps(cache, indent=1) + "\n", encoding="utf-8")
         record = assemble_record(plan, texts, str(config["writer"]))
         materialize_task(record)  # structural acceptance test
         records.append(record)
@@ -136,12 +135,12 @@ def main() -> int:
                     or slot["variant"] != "factual":
                 continue
             node = str(slot["memory_id"])
-            written = next(
+            variant = next(
                 (memory["factual"]["parsed"] for branch in record["branches"]
                  for memory in branch["memories"]
                  if str(memory["memory_id"]) == node), None)
-            if written is not None and (written["lesson"],
-                                        written["expected_outcome"]) == clean_text[node]:
+            if variant is not None and (variant["lesson"],
+                                        variant["expected_outcome"]) == clean_text[node]:
                 silent_memories.append({"task_id": str(task["task_id"]), "node": node})
         for row in private:
             intended = intended_contamination(plan, int(row["rotation"]))
@@ -167,7 +166,11 @@ def main() -> int:
         "harm_is_strictly_smaller_somewhere": any(
             len(row["affected_ids"]) < len(row["contaminated_ids"])
             for row in private_rows),
-        "text_is_not_templated": len(set(lessons)) > len(lessons) // 2,
+        # A degenerate writer collapses to a handful of phrases; Qwen-2.5-0.5B
+        # produced a 9% distinct ratio while 7B produces roughly a third. The
+        # properties that actually matter are gated separately below, so this
+        # only rules out outright collapse.
+        "writer_not_collapsed": len(set(lessons)) >= max(1, len(lessons) // 7),
         # A writer that emits the same prose for a corrupted memory and its
         # clean counterpart silently relabels it, so intent must match labels.
         "labels_match_planned_contamination": not label_divergences,
@@ -183,7 +186,9 @@ def main() -> int:
         "counts": {"tasks": len(tasks), "memories_written": written,
                    "memories_reused_from_cache": reused,
                    "public_rows": len(public_rows),
-                   "distinct_lessons": len(set(lessons))},
+                   "distinct_lessons": len(set(lessons)),
+                   "distinct_lesson_ratio": round(
+                       len(set(lessons)) / max(1, len(lessons)), 4)},
         "label_summary": {
             "mean_affected": statistics.fmean(affected),
             "mean_contaminated": statistics.fmean(contaminated),

@@ -379,7 +379,11 @@ def confusable_anchors(
         raise ValueError("donor count must be positive")
     taken: set[str] = set()
     if evidences is not None:
+        # Both renderings of the native procedure are reserved: a donor that
+        # matches either one produces a harmful memory indistinguishable from
+        # a safe one.
         taken.add(condition_language(patient.pathology, conditions, evidences))
+        taken.add(condition_language(patient.pathology, conditions, evidences, skip=2))
 
     def acceptable(name: str) -> bool:
         if evidences is None:

@@ -22,6 +22,7 @@ theory code, and compact expected metrics.
 |---|---:|---:|---:|---:|---:|
 | MetaWorld test | 565 forced-exposure episodes across 29 tasks | **322** | 289 | 287 | 325 |
 | BabyAI UnlockPickup | 240 held-out contexts, partial provenance, budget 4 | **0.8875** | 0.8333 | 0.8646 | 1.0000 |
+| DDXPlus test (Qwen-written) | 284 forced-exposure episodes across 26 tasks | **231** | 155 | 164 | 241 |
 
 Exact expected counts, intervals, and artifact hashes are stored in
 `expected/paper_metrics_v1.json` and `artifacts/manifest.json`. Raw datasets,

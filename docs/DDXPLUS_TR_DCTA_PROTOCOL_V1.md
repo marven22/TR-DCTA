@@ -67,15 +67,15 @@ so contamination is not a deterministic function of graph reachability.
 - Test: fit once on all development and validation tasks; the 26 test tasks are
   excluded.
 
-Proposal floor 0.05, L2 1.0, stable archive-derived seeds.
+2,048 particles, proposal floor 0.05, L2 1.0, stable archive-derived seeds,
+matching the frozen MetaWorld posterior settings.
 
 ## Declared deviations from the MetaWorld contract
 
 1. Retrieval is scored by token overlap rather than the pinned sentence
    encoder. DDXPlus memory text is template generated and carries no lexical
    signal that the overlap scorer cannot already see.
-2. Posterior sampling uses 512 particles rather than 2,048.
-3. Memory text is template generated rather than model written.
+2. Memory text is template generated rather than model written.
 
 Each deviation makes the domain simpler, not the method stronger, and each is
 recorded in the emitted report.

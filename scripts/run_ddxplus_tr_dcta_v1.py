@@ -51,8 +51,11 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+LEDGER_DIR = ROOT / "results"
+
+
 def load(split: str, kind: str) -> dict[str, Any]:
-    path = ROOT / "results" / f"ddxplus_{split}_{kind}_mask_consistent.json"
+    path = LEDGER_DIR / f"ddxplus_{split}_{kind}_mask_consistent.json"
     return json.loads(path.read_text(encoding="utf-8"))
 
 
@@ -174,10 +177,27 @@ def main() -> int:
     parser.add_argument("--generation", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--ledger-dir", type=Path, default=ROOT / "results",
+                        help="directory holding the mask-consistent ledgers")
+    parser.add_argument("--budget", type=int,
+                        help="override the frozen replay budget for a sweep cell")
+    parser.add_argument("--provenance-rate", type=float,
+                        help="override the frozen missing-provenance rate")
+    parser.add_argument("--particles", type=int,
+                        help="override the frozen particle count")
     args = parser.parse_args()
+    global LEDGER_DIR
+    LEDGER_DIR = args.ledger_dir
     config = json.loads(args.config.read_text(encoding="utf-8"))
     if config.get("protocol") != "ddxplus_tr_dcta_v1":
         raise ValueError("frozen DDXPlus evaluation configuration required")
+    # Sweep overrides are recorded in the report so a cell is never mistaken
+    # for the frozen primary condition.
+    overrides = {name: value for name, value in (
+        ("budget", args.budget), ("primary_provenance_missing_rate",
+                                  args.provenance_rate),
+        ("particles", args.particles)) if value is not None}
+    config = {**config, **overrides}
 
     generation = json.loads(args.generation.read_text(encoding="utf-8"))
     records = {str(record["task_id"]): record for record in generation["archives"]}
@@ -266,6 +286,10 @@ def main() -> int:
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "EXECUTABLE" if all(integrity.values()) else "INVALID",
         "retrieval_deviation": "token overlap, not the pinned sentence encoder",
+        "sweep_overrides": overrides,
+        # Descriptive, not an integrity condition: a sweep cell is a valid run
+        # that simply is not the frozen primary condition.
+        "is_frozen_primary_cell": not overrides,
         "artifact_hashes": {"config": digest(args.config),
                             "generation": digest(args.generation),
                             "runner": digest(Path(__file__))},

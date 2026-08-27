@@ -32,8 +32,11 @@ from mcx.publication_v2_source import fit_source_estimator, source_features
 ROOT = Path(__file__).resolve().parents[1]
 
 
+LEDGER_DIR = ROOT / "results"
+
+
 def load(split: str, kind: str) -> list[dict[str, Any]]:
-    path = ROOT / "results" / f"ddxplus_{split}_{kind}_mask_consistent.json"
+    path = LEDGER_DIR / f"ddxplus_{split}_{kind}_mask_consistent.json"
     return json.loads(path.read_text(encoding="utf-8"))["archives"]
 
 
@@ -54,7 +57,10 @@ def main() -> int:
     parser.add_argument("--primary-rate", type=float, default=0.25)
     parser.add_argument("--particles", type=int, default=512)
     parser.add_argument("--auc-archives", type=int, default=9)
+    parser.add_argument("--ledger-dir", type=Path, default=ROOT / "results")
     args = parser.parse_args()
+    global LEDGER_DIR
+    LEDGER_DIR = args.ledger_dir
 
     public = {split: load(split, "public") for split in ("development", "validation")}
     private = {split: load(split, "private") for split in ("development", "validation")}

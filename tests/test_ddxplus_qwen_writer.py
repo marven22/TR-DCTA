@@ -88,7 +88,7 @@ class GenerationTest(unittest.TestCase):
         self.plan = plan_record(TASK)
 
     def test_generated_archive_materializes_like_the_template_archive(self):
-        texts, incidents = generate_texts(
+        texts, incidents, _ = generate_texts(
             self.plan, echo_generate, forbidden=forbidden_terms(TASK))
         self.assertEqual(incidents, [])
         record = assemble_record(self.plan, texts, "ddxplus-qwen-v1")
@@ -112,11 +112,27 @@ class GenerationTest(unittest.TestCase):
                 return "not json at all"
             return echo_generate(prompt)
 
-        texts, incidents = generate_texts(
+        texts, incidents, _ = generate_texts(
             self.plan, flaky, forbidden=forbidden_terms(TASK), attempts=2)
         self.assertTrue(texts)
         self.assertEqual(len(incidents), 1)
         self.assertIn("not JSON", incidents[0]["reason"])
+
+    def test_cache_is_reused_only_when_the_prompt_is_unchanged(self):
+        cache = {}
+        _, _, reused = generate_texts(self.plan, echo_generate,
+                                      forbidden=forbidden_terms(TASK), cache=cache)
+        self.assertEqual(reused, 0)
+        self.assertTrue(cache)
+        _, _, reused = generate_texts(self.plan, echo_generate,
+                                      forbidden=forbidden_terms(TASK), cache=cache)
+        self.assertEqual(reused, len(cache))
+        # A stale entry whose prompt has changed must not be reused.
+        key = next(iter(cache))
+        cache[key] = {**cache[key], "prompt_sha256": "0" * 16}
+        _, _, reused = generate_texts(self.plan, echo_generate,
+                                      forbidden=forbidden_terms(TASK), cache=cache)
+        self.assertEqual(reused, len(cache) - 1)
 
     def test_unusable_responses_raise_rather_than_corrupt_the_archive(self):
         with self.assertRaises(GenerationRejected):

@@ -83,6 +83,8 @@ def main() -> int:
     parser.add_argument("--generation", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--ledger-dir", type=Path, default=ROOT / "results",
+                        help="directory holding the mask-consistent ledgers")
     args = parser.parse_args()
 
     config = json.loads(args.config.read_text(encoding="utf-8"))
@@ -93,7 +95,7 @@ def main() -> int:
 
     public, private = {}, {}
     for split in SPLITS:
-        base = ROOT / "results" / f"ddxplus_{split}"
+        base = args.ledger_dir / f"ddxplus_{split}"
         public.update({row["archive_id"]: row for row in json.loads(
             (base.with_name(base.name + "_public_mask_consistent.json")).read_text(
                 encoding="utf-8"))["archives"]})
