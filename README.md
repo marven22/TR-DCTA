@@ -11,10 +11,6 @@ uses finite-horizon rollout to choose a small number of diagnostic replays, and
 then quarantines a capacity-constrained set of records before the agent resumes
 operation. It does not rewrite or claim to repair archived memories.
 
-The method was developed under the internal name **TR-DCTA**. Legacy filenames,
-configuration identifiers, and artifact keys retain that name so frozen runs
-and their hashes remain traceable. The public method and paper name are
-LANTERN.
 
 ## What this repository contains
 
