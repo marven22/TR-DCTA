@@ -1,7 +1,7 @@
-# TR-DCTA explained from first principles
+# LANTERN explained from first principles
 
-This chapter explains the complete idea behind Terminal-Recovery Dynamic Causal
-Trajectory Auditing (TR-DCTA) without assuming prior knowledge of agent memory,
+This chapter explains the complete idea behind LANTERN without assuming prior
+knowledge of agent memory,
 Bayesian inference, provenance graphs, or active search. It begins with an
 ordinary example, develops the mathematical version, and then connects every
 piece to the implementation and experiments.
@@ -594,4 +594,3 @@ The single best question to ask while reading any component is:
 > whether the agent can safely recover after the audit?
 
 TR-DCTA is built around the second quantity.
-

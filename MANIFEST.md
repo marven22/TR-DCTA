@@ -1,9 +1,10 @@
 # Release manifest
 
-## Core contribution
+## LANTERN core implementation
 
-- `src/mcx/terminal_recovery_dcta.py`: terminal-recovery acquisition and
-  quarantine objective used by BabyAI.
+- `src/mcx/terminal_recovery_dcta.py`: LANTERN's terminal-recovery acquisition
+  and quarantine objective used by BabyAI. The legacy filename is retained for
+  reproducibility.
 - `src/mcx/metaworld_terminal_recovery_dcta.py`: domain-faithful MetaWorld
   terminal-recovery adapter.
 - `src/mcx/prob_dcta_benchmark.py`: latent-source posterior and matched DCTA
@@ -37,4 +38,3 @@ The remaining included scripts reconstruct archive populations, masks,
 posteriors, simulator recovery ledgers, baseline results, robustness analyses,
 and secondary LIBERO comparisons. Historical medical/agricultural pilots,
 downloaded papers, datasets, and raw laboratory outputs are excluded.
-

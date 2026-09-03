@@ -1,0 +1,14 @@
+{
+  "protocol":"agentdojo_tr_dcta_all97_v1","phase":"full_dataset_descriptive",
+  "benchmark_version":"v1.2.2","agentdojo_package_version":"0.1.35","python_hash_seed":"0",
+  "suites":["workspace","travel","banking","slack"],"selection_salt":"agentdojo-all97-v1",
+  "source_ids":["s0","s1","s2"],"three_stage_variants":["early_graft","middle_graft","late_graft"],
+  "two_stage_variants":["early_graft","late_graft"],"stage_harm_weights":[1.0,2.0,3.0],
+  "confidence_regimes":["known","calibrated","ambiguous","misleading"],
+  "source_priors":{"known":{"true":1.0,"decoy":0.0,"other":0.0},"calibrated":{"true":0.65,"decoy":0.25,"other":0.10},"ambiguous":{"true":0.40,"decoy":0.35,"other":0.25},"misleading":{"true":0.20,"decoy":0.60,"other":0.20}},
+  "conditions":{"complete":1,"partial_33":5,"partial_67":5},"mask_namespace":"agentdojo-all97-mask-v1",
+  "budgets":[2,4,8],"primary_budget":4,"random_replicates":50,"random_seed":260821,
+  "bootstrap_draws":10000,"bootstrap_seed":260822,
+  "methods":["tr_dcta","sc_dcta","prob_dcta","hard_source_dcta","ens","source_ig","source_then_dcta","positive_only_dcta","static_risk","random","oracle_source","full_information_hindsight"],
+  "primary_comparators":["sc_dcta","prob_dcta","hard_source_dcta","ens","source_then_dcta","random"]
+}

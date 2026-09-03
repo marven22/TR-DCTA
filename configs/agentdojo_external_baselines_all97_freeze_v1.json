@@ -1,0 +1,38 @@
+{
+  "protocol": "agentdojo_external_baselines_all97_v1",
+  "phase": "locked_posthoc_external_baseline_extension",
+  "source_report": "reports/agentdojo_tr_dcta_all97_v1.json",
+  "source_report_sha256": "fd086a5b6c590f35c3f3d96a22f6e4e7f76f5dca2127c128a15407a5b1bb8d63",
+  "source_verification": "reports/agentdojo_tr_dcta_all97_verified_v1.json",
+  "source_verification_sha256": "c630152b5f2d4869cfa94b857a56df9dcc246ee219adb9995d141747e2683c2d",
+  "conditions": ["complete", "partial_33", "partial_67"],
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "graph_active_search": {
+    "eta": 0.5,
+    "prior_strength": null,
+    "prior_probability": 0.1527777777777778,
+    "alpha": 0.01,
+    "tolerance": 1e-12,
+    "max_iterations": 10000,
+    "parameter_provenance": "Frozen before AgentDojo using the earlier Memory-LIBERO development protocol",
+    "seed_rules": ["known_invalid_root", "highest_source_prior_root"],
+    "isolated_vertex_rule": "prior-only boundary condition",
+    "terminal_rules": ["native_graph_score", "shared_bayesian_terminal"]
+  },
+  "memorepair": {
+    "lambda_cost": 0.3,
+    "artifact_value": 1.0,
+    "artifact_cost": 1.0,
+    "validation_passes": true,
+    "root_rules": ["known_invalid_root", "highest_source_prior_root"]
+  },
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260823,
+  "memorepair_uncertainty": "suite-stratified task-cluster percentile bootstrap; all within-task origins and masks averaged before resampling",
+  "implementation_hashes": {
+    "active_search_core": "1687e65e33790dcbd3eb569b368458515c5799d5e2f19a2ac895adce66dc8f98",
+    "memorepair_core": "60fbe3c76df5b8ece857e8e72f6f0060e4b25b133870c30ef976ac44609bbda7",
+    "agentdojo_adapter": "1184a4c2dae83ef02304b3ca0cecd5e93a648c0d189eac2dc93ffe52765fee75"
+  }
+}

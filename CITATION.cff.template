@@ -1,10 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the accompanying paper."
-title: "TR-DCTA: Terminal-Recovery Auditing for Persistent Agent-Memory Corruption"
+title: "LANTERN: Safe Recovery from Corrupted Robot Experience under Incomplete Provenance"
 type: software
 version: 0.1.0
 authors:
   - family-names: Margapuri
     given-names: Venkat
 # Add every coauthor and the final preferred-citation block before release.
-

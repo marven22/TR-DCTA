@@ -41,9 +41,17 @@ the upstream host and are not stored here. Earlier MemoryArena generation can
 optionally use the pinned Qwen checkpoint specified by the corresponding
 configuration.
 
+## AgentDojo
+
+- Official repository: https://github.com/ethz-spylab/agentdojo
+
+The AgentDojo evaluation uses the benchmark's official user-task and injection
+task environments. This repository stores construction code and frozen
+configuration identifiers, not tool environments, cached workflow traces, or
+benchmark assets.
+
 ## Licensing
 
 Researchers must accept and comply with each benchmark's current license and
 download terms. The release artifact should record upstream commits and include
 required notices, but it must not copy benchmark datasets into this repository.
-

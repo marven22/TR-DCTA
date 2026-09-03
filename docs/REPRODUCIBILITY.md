@@ -13,7 +13,7 @@ The exact paper run can be reproduced in either of two ways:
 2. regenerate those ledgers from the public benchmarks using the construction
    scripts and then run the same manifest check.
 
-The two paths converge before method execution. TR-DCTA and every comparator
+The two paths converge before method execution. LANTERN and every comparator
 consume the same frozen archive and behavioral ledgers.
 
 ## Reference environment
@@ -92,6 +92,21 @@ Use each script's `--help` before execution because the exact CLI is treated as
 part of the executable contract. The OpenDoorColor transfer has corresponding
 `run_...transfer_v1.py` and `verify_...transfer_v1.py` commands.
 
+## AgentDojo exact evaluation
+
+AgentDojo is an optional dependency. Install the upstream benchmark and its
+declared package version before running the frozen all-task workflow study.
+The release contains the AgentDojo adapters, configurations, runners, and
+verifiers, but not benchmark assets or cached workflow traces.
+
+```bash
+python scripts/run_agentdojo_tr_dcta_all97_v1.py \
+  --config configs/agentdojo_tr_dcta_all97_freeze_v1.json \
+  --output reports/agentdojo_tr_dcta_all97_v1.json
+python scripts/verify_agentdojo_tr_dcta_all97_v1.py \
+  --report reports/agentdojo_tr_dcta_all97_v1.json
+```
+
 ## End-to-end ledger reconstruction
 
 The included construction scripts preserve the actual research pipeline:
@@ -103,7 +118,7 @@ The included construction scripts preserve the actual research pipeline:
 5. fit source and cascade models using only the permitted split;
 6. build observable and private recovery ledgers;
 7. reconstruct forced-exposure retrieval endpoints;
-8. run baselines and TR-DCTA; and
+8. run baselines and LANTERN; and
 9. aggregate and independently verify the result.
 
 Important entry points include:
@@ -136,4 +151,3 @@ configurations.
 Do not bypass a hash mismatch. A mismatch means the experiment is no longer the
 frozen paper run. Regenerate the downstream artifacts under a new protocol
 identifier or obtain the correct archived bundle.
-

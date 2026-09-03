@@ -1,0 +1,57 @@
+{
+  "protocol": "agentdojo_tr_dcta_method_heldout_v1",
+  "phase": "method_heldout_confirmatory",
+  "claim_boundary": "structurally_screened_but_not_used_for_method_development",
+  "benchmark_version": "v1.2.2",
+  "agentdojo_package_version": "0.1.35",
+  "python_hash_seed": "0",
+  "suites": ["workspace", "travel", "banking", "slack"],
+  "selection_salt": "agentdojo-tr-dcta-method-heldout-v1",
+  "archives_per_suite": 8,
+  "sources_per_archive": 3,
+  "source_ids": ["s0", "s1", "s2"],
+  "variants": ["early_graft", "middle_graft", "late_graft"],
+  "stage_harm_weights": [1.0, 2.0, 3.0],
+  "cascade_length_prior": [0.3333333333333333, 0.3333333333333333, 0.3333333333333333],
+  "confidence_regimes": ["known", "calibrated", "ambiguous", "misleading"],
+  "source_priors": {
+    "known": {"true": 1.0, "decoy": 0.0, "other": 0.0},
+    "calibrated": {"true": 0.65, "decoy": 0.25, "other": 0.10},
+    "ambiguous": {"true": 0.40, "decoy": 0.35, "other": 0.25},
+    "misleading": {"true": 0.20, "decoy": 0.60, "other": 0.20}
+  },
+  "provenance_conditions": {
+    "complete": {"hidden_links_per_layer": 0, "mask_replicates": 1},
+    "partial_67": {"hidden_links_per_layer": 2, "mask_replicates": 5}
+  },
+  "mask_seed_namespace": "agentdojo-heldout-mask-v1",
+  "budgets": [2, 4, 8],
+  "primary_budget": 4,
+  "primary_condition": "partial_67",
+  "quarantine_capacity": 3,
+  "random_replicates": 50,
+  "random_seed": 260817,
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 260818,
+  "minimum_clean_tool_calls": 2,
+  "methods": [
+    "tr_dcta", "sc_dcta", "prob_dcta", "hard_source_dcta", "ens",
+    "source_ig", "source_then_dcta", "positive_only_dcta", "static_risk",
+    "random", "oracle_source", "full_information_hindsight"
+  ],
+  "primary_estimands": ["safe_recovery_success", "weighted_quarantine_recall"],
+  "primary_comparators": [
+    "sc_dcta", "prob_dcta", "hard_source_dcta", "ens",
+    "source_then_dcta", "random"
+  ],
+  "development_report": "reports/agentdojo_tr_dcta_development_v1.json",
+  "development_report_sha256": "14b320300c55208732ab86d8da843088390f16a270b0c6d0088c9c0653684a64",
+  "development_verification": "reports/agentdojo_tr_dcta_development_verified_v1.json",
+  "development_verification_sha256": "a4c2603651ba827a51c13b0d810ba631d4e71fa4c8a34c903265efc2d0fa0361",
+  "capacity_audit": "reports/agentdojo_heldout_capacity_audit_v1.json",
+  "capacity_audit_sha256": "14aa6c69038d2b7c51c6bcd26a2b9ae0ef71f521555d7a10360214626511ae4c",
+  "terminal_recovery_method_sha256": "8c57f27d08d7cd9560ac6c8873047ab0282c11e31096f845901c78a4821a7892",
+  "agentdojo_method_sha256": "ce34be9aa30bbad814644495d5db93c3a742941b52c4dbfcfa4fdddde39b21ff",
+  "agentdojo_adapter_sha256": "bb942429cbe6823270f7997826d6b941ef1388e11292a11876d13a2bcb7a7fbd",
+  "development_runner_sha256": "071de33badb9387fa2fe53a2220c4402b1e351b3d949eeee4192219d297bcdf4"
+}

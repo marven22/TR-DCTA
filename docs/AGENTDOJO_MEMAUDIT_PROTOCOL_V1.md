@@ -1,0 +1,7 @@
+# AgentDojo MemAudit reconstruction protocol v1
+
+This is a post-hoc external-baseline extension over the frozen 97-task AgentDojo study. MemAudit has no public author implementation, so we use the same paper-faithful reconstruction already audited on MetaWorld: equations 7, 8, and 10; alpha 0.6; min-max normalization; MPNet semantic neighborhoods; DeBERTa NLI inconsistency; and batch auditing.
+
+The natural label-blind pilot is retained as a retrieval diagnostic. It selected no harmful memory in 12 trials, so it could not evaluate attribution. The primary evaluation therefore forces exposure to every logged harmful memory, exactly as the MetaWorld forced-exposure evaluation does. This measures the question MemAudit claims to solve: after harm is observed, can leave-one-memory-out influence plus consistency anomaly rank the responsible memories?
+
+All harmful events belonging to one truth instance are audited jointly. MemAudit quarantines its highest-ranked memories up to `min(budget, archive depth)` for budgets 2, 4, and 8. Its exhaustive top-5 counterfactual calls are reported separately and are not presented as replay-budget matched. MemAudit does not use provenance, so its outputs are identical under complete, 33%-missing, and 67%-missing masks; repeated views preserve the exact population for paired comparisons but are not treated as independent statistical units. Confidence intervals and paired differences use suite-stratified task-cluster bootstrap over the 97 official tasks.

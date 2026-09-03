@@ -1,0 +1,17 @@
+{
+  "protocol": "memaudit-agentdojo-all97-v1/freeze",
+  "source_report": ["reports/agentdojo_tr_dcta_all97_v1.json", "fd086a5b6c590f35c3f3d96a22f6e4e7f76f5dca2127c128a15407a5b1bb8d63"],
+  "source_verification": ["reports/agentdojo_tr_dcta_all97_verified_v1.json", "c630152b5f2d4869cfa94b857a56df9dcc246ee219adb9995d141747e2683c2d"],
+  "external_baselines": "reports/agentdojo_external_baselines_all97_v1.json",
+  "agentdojo": {"version": "0.1.35", "source_commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60", "benchmark_version": "v1.2.2"},
+  "population": {"official_tasks": 97, "truth_instances": 291, "harmful_events": 552, "posterior_views": 3201},
+  "parameters": {"alpha": 0.6, "semantic_neighbors": 5, "retrieval_top_k": 5, "budgets": [2, 4, 8], "terminal_capacity": "archive_depth"},
+  "models": {
+    "semantic_model": "sentence-transformers/all-mpnet-base-v2",
+    "semantic_model_revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+    "nli_model": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+    "nli_model_revision": "6f5cf0a2b59cabb106aca4c287eed12e357e90eb"
+  },
+  "statistics": {"bootstrap_draws": 10000, "bootstrap_seed": 20260812},
+  "claim_boundary": "posthoc external-baseline reconstruction; forced exposure evaluates MemAudit attribution after a logged harmful event; no author code was available"
+}
